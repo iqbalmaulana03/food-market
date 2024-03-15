@@ -1,5 +1,5 @@
 
-;
-java:S1165	" Make this "message" field final.(ù„è¿ûÿÿÿÿ
-F
-java:S1068	"+Remove this unused "message" private field.(ù„è¿ûÿÿÿÿ
+–
+java:S1104	"SMake message a static final constant or non-public and provide accessors if needed.(ÕÃØ·8’…Ë–ä1J$90d2deb4-9e60-4e9a-bf5e-8a3d43802f7e
+c
+java:S1165	" Make this "message" field final.(ÕÃØ·8©…Ë–ä1J$1d0173c0-55ac-4c57-9dd9-7cefd1cba8c6

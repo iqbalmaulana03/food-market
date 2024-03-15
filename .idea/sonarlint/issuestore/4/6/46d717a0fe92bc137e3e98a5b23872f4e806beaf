@@ -1,3 +1,4 @@
 
-o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­„®ƒ
-t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(îÖñØüÿÿÿÿ
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(üäâ8Ùó¯–ä1J$0d194f26-8154-4690-b81d-0fb2f53da85d
+•	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­„®ƒJ$627e5d53-f966-4a7c-9fc6-de53437497d6
+š	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(îÖñØüÿÿÿÿJ$d7a8c3d5-a65a-4874-b2fb-8fd546fb5dce

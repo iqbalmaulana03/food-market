@@ -17,7 +17,6 @@ import com.foodmarket.foodmarket.mapper.AutoUploadAvatar;
 import com.foodmarket.foodmarket.mapper.AutoUserMapper;
 import com.foodmarket.foodmarket.repository.UserRepository;
 import com.foodmarket.foodmarket.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -35,7 +34,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -43,17 +41,20 @@ public class UserServiceImpl implements UserService {
     @Value("${app.upload-file-path}")
     private String uploadPath;
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    private final AuthenticationManager authenticationManager;
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    @Autowired
-    private JwtService jwtService;
+    private final JwtService jwtService;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
+
+    public UserServiceImpl(AuthenticationManager authenticationManager, UserRepository userRepository, JwtService jwtService, PasswordEncoder passwordEncoder) {
+        this.authenticationManager = authenticationManager;
+        this.userRepository = userRepository;
+        this.jwtService = jwtService;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Override
     public UserResponse createUser(UserDTO userDTO) {
@@ -70,7 +71,7 @@ public class UserServiceImpl implements UserService {
                 .houseNumber(userDTO.getHouseNumber())
                 .phoneNumber(userDTO.getPhoneNumber())
                 .city(userDTO.getCity())
-                .created_time(new Date())
+                .createdAt(new Date())
                 .role(Role.User)
                 .build();
         userRepository.save(user);
@@ -121,7 +122,7 @@ public class UserServiceImpl implements UserService {
         existingUser.setPhoneNumber(updateUserDTO.getPhoneNumber());
         existingUser.setHouseNumber(updateUserDTO.getHouseNumber());
         existingUser.setCity(updateUserDTO.getCity());
-        existingUser.setUpdated_time(new Date());
+        existingUser.setUpdatedAt(new Date());
 
         User updated = userRepository.save(existingUser);
 
@@ -184,7 +185,7 @@ public class UserServiceImpl implements UserService {
         Files.copy(avatarFileName.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
 
         user.setAvatarFileName(filename);
-        user.setUpdated_time(new Date());
+        user.setUpdatedAt(new Date());
 
         User uploadFile = userRepository.save(user);
 

@@ -1,11 +1,2 @@
 
-X
-java:S6813."BRemove this field injection and use constructor injection instead.(êæÄÞ
-X
-java:S68131"BRemove this field injection and use constructor injection instead.(êæÄÞ
-X
-java:S68134"BRemove this field injection and use constructor injection instead.(êæÄÞ
-X
-java:S68137"BRemove this field injection and use constructor injection instead.(êæÄÞ
-S
-java:S1128&"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ãŠŽ°8¸Ï©–ä1J$0e8648c8-1617-462c-916c-485e27e69ab0

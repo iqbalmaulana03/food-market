@@ -51,13 +51,13 @@ public class TransactionServiceImpl implements TransactionService {
             transaction.setFood(food);
             transaction.setQuantity(transactionDTO.getQuantity());
             transaction.setTotal(count);
-            transaction.setCreated_time(new Date());
+            transaction.setCreatedAt(new Date());
             transaction.setUser(user);
             transaction.setStatus("pending");
 
             var save = transactionRepository.save(transaction);
 
-            var payments = GetPayment(save, food);
+            var payments = getPayment(save, food);
 
             save.setPaymentURL(payments);
 
@@ -114,12 +114,15 @@ public class TransactionServiceImpl implements TransactionService {
         return response;
     }
 
-    public String GetPayment(Transaction transaction, Food food) throws MidtransError {
+    private String getPayment(Transaction transaction, Food food) throws MidtransError {
 
-        MidtransSnapApi snapApi = new ConfigFactory(new Config("",
-                "",
-                false))
-                .getSnapApi();
+        Config snapConfigOptions = Config.builder()
+                .setServerKey("")
+                .setClientKey("")
+                .setIsProduction(false)
+                .build();
+
+        MidtransSnapApi snapApi = new ConfigFactory(snapConfigOptions).getSnapApi();
 
         Map<String, Object> params = new HashMap<>();
 
@@ -131,14 +134,14 @@ public class TransactionServiceImpl implements TransactionService {
         customerDetails.put("first_name", transaction.getUser().getName());
         customerDetails.put("email", transaction.getUser().getEmail());
 
-        Map<String, Object> item_details = new HashMap<>();
-        item_details.put("id", food.getId());
-        item_details.put("price", food.getPrice());
-        item_details.put("quantity", transaction.getQuantity());
-        item_details.put("name", food.getName());
+        Map<String, Object> itemDetail = new HashMap<>();
+        itemDetail.put("id", food.getId());
+        itemDetail.put("price", food.getPrice());
+        itemDetail.put("quantity", transaction.getQuantity());
+        itemDetail.put("name", food.getName());
 
         JSONArray itemDetails = new JSONArray();
-        itemDetails.put(item_details);
+        itemDetails.put(itemDetail);
 
         params.put("transaction_details", transactionDetails);
         params.put("item_details", itemDetails);

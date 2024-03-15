@@ -92,7 +92,7 @@ public class FoodServiceImpl implements FoodService {
     @Override
     public FoodResponse create(FoodDTO foodDTO) {
         Food food = AutoFoodMapper.MAPPER.mapToFood(foodDTO);
-        food.setCreated_time(new Date());
+        food.setCreatedAt(new Date());
 
         Food save = foodRepository.save(food);
 
@@ -111,7 +111,7 @@ public class FoodServiceImpl implements FoodService {
 
         Files.copy(foodImage.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
         food.setPicturePath(fileName);
-        food.setUpdated_time(new Date());
+        food.setUpdatedAt(new Date());
 
         var image = foodRepository.save(food);
         return AutoFoodMapper.MAPPER.mapToFoodDto(image);
@@ -129,7 +129,7 @@ public class FoodServiceImpl implements FoodService {
         food.setPrice(foodResponse.getPrice());
         food.setRate(foodResponse.getRate());
         food.setTypes(foodResponse.getTypes());
-        food.setUpdated_time(new Date());
+        food.setUpdatedAt(new Date());
 
         foodRepository.save(food);
 

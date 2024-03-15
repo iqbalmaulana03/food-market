@@ -57,12 +57,12 @@ public class User implements UserDetails {
     @Column(name = "created_time", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "yyyy/MM/dd, HH:mm:ss", timezone = "Asia/Jakarta")
-    private Date created_time;
+    private Date createdAt;
 
     @Column(name = "updated_time")
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "yyyy/MM/dd, HH:mm:ss", timezone = "Asia/Jakarta")
-    private Date updated_time;
+    private Date updatedAt;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

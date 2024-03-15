@@ -147,3 +147,7 @@ Rfood-market/src/main/java/com/foodmarket/foodmarket/controller/AuthController.j
 Yfood-market/src/main/java/com/foodmarket/foodmarket/controller/TransactionController.java,3\7\37342a720ca3ae73d603f92f3a11976deb3aa4cf
 ‚
 Rfood-market/src/main/java/com/foodmarket/foodmarket/controller/UserController.java,d\4\d4560d9b39825ae4ac6e24306b33d4ce581372df
+F
+food-market/Dockerfile,5\a\5a3d75b93cb1cce119e916ec52e8366bb6ed2d62
+N
+food-market/docker-compose.yml,2\e\2e5fc80c052108ad31125c3063cf91d388308fcc

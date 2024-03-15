@@ -1,5 +1,2 @@
 
-f	java:S117†"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø´!
-h	java:S100u"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡ÜË»ûÿÿÿÿ
-C
-java:S1874w".Remove this use of "Config"; it is deprecated.(®¯ú-
+œ	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ãŠ°8•áı•ä1J$4c678de5-10d5-4a6e-b14f-7d1107d43cbe
